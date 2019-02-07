@@ -1,0 +1,19 @@
+<p>Lista studentów</p>
+<table>
+  <thead>
+    <tr>
+      <th>Nazwisko i imię</th>
+      <th>Numer indeksu</th>
+      <th>Kursy zaliczone</th>
+      <th>Kursy niezaliczone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let s of students$ | async">
+      <td>{{s.lastName}} {{s.firstName}} </td>
+      <td>{{s.indexNumber}}</td>
+      <td>{{s.coursesPassedCount}}</td>
+      <td>{{s.coursesFailedCount}}</td>
+    </tr>
+  </tbody>
+</table>
