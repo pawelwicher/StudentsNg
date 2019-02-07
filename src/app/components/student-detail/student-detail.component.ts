@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { StudentsService } from 'src/app/services/students.service';
-import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { StudentDto } from 'src/app/models/student-dto';
 
@@ -20,10 +19,7 @@ export class StudentDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.paramMap.pipe(
-      switchMap((params: ParamMap) => {
-        const id = +params.get('id');
-        return this.studentsService.getStudent(id);
-      })
+      switchMap((params: ParamMap) => this.studentsService.getStudent(+params.get('id')))
     ).subscribe(data => this.student = data);
   }
 
