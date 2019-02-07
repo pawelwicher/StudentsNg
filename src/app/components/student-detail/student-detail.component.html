@@ -1,0 +1,20 @@
+<p>
+  Student: {{student?.lastNameAndFirstName}}, numer indeksu: {{student?.indexNumber}}
+</p>
+<a [routerLink]="['/student/list']">powrót</a>
+<br/>
+<br/>
+<table>
+    <thead>
+      <tr>
+        <th>Kurs</th>
+        <th>Ocena</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of student?.courses">
+        <td>{{c.name}}</td>
+        <td [ngClass]="c.grade < 3 ? 'course-failed' : 'course-passed'">{{c.grade}}</td>
+      </tr>
+    </tbody>
+  </table>

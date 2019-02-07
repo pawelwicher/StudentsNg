@@ -1,4 +1,7 @@
 <p>Lista studentów</p>
+<a [routerLink]="['/']">powrót</a>
+<br/>
+<br/>
 <table>
   <thead>
     <tr>
@@ -10,10 +13,12 @@
   </thead>
   <tbody>
     <tr *ngFor="let s of students$ | async">
-      <td>{{s.lastName}} {{s.firstName}} </td>
+      <td>
+        <a [routerLink]="['/student', s.id]">{{s.lastNameAndFirstName}}</a>
+      </td>
       <td>{{s.indexNumber}}</td>
-      <td>{{s.coursesPassedCount}}</td>
-      <td>{{s.coursesFailedCount}}</td>
+      <td>{{s.numberOfCoursesPassed}}</td>
+      <td>{{s.numberOfCoursesFailed}}</td>
     </tr>
   </tbody>
 </table>
